@@ -64,12 +64,14 @@ Let's make sure we are logged in to Weights & Biases. Get your API key from W&B 
 then paste your key into this command:
 
 ```bash
-> wandb login [your API key]
+> wandb login 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
 ```
 
 You should see a message similar to:
 ```
 wandb: Appending key for api.wandb.ai to your netrc file: /home/[your username]/.netrc
+
+Here is the link to my public Weights & Biases project: https://wandb.ai/joan-e-lambert-western-governors-university/nyc_airbnb/
 ```
 
 
