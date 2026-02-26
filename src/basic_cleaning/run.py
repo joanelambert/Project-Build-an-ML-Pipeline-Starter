@@ -17,9 +17,6 @@ def go(args):
     run = wandb.init(project="nyc_airbnb", group="cleaning", save_code=True, job_type="basic_cleaning")
     run.config.update(args)
 
-    # Download input artifact. This will also log that this script is using this
-    
-    # run = wandb.init(project="nyc_airbnb", group="cleaning", save_code=True)
     artifact_local_path = run.use_artifact('joan-e-lambert-western-governors-university/nyc_airbnb/sample.csv:v0').file()
     df = pd.read_csv(artifact_local_path)
     # Drop outliers
@@ -29,12 +26,6 @@ def go(args):
     df = df[idx].copy()
     # Convert last_review to datetime
     df['last_review'] = pd.to_datetime(df['last_review'])
-
-    # Step 6: TODO
-    # Only implement this step when reaching Step 6: Pipeline Release and Updates
-    # in the project.
-    # Add longitude and latitude filter to allow test_proper_boundaries to pass
-    # ENTER CODE HERE
 
     # Save the cleaned data
     df.to_csv('clean_sample.csv',index=False)
@@ -49,8 +40,6 @@ def go(args):
     run.log_artifact(artifact)
 
 
-# TODO: In the code below, fill in the data type for each argument. The data type should be str, float or int. 
-# TODO: In the code below, fill in a description for each argument. The description should be a string.
 if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(description="A very basic data cleaning")
